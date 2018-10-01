@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  h1 TODO-List
+  form(action="/todo/add" method="POST")
+    div
+      span Time:
+      input(type="time" placeholder="time" name="time" required="true")
+    div
+      span Item:
+      input(type="text" placeholder="item" name="item" required="true")
+    button(type="submit") Submit

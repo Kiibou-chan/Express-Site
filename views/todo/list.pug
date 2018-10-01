@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+  h1 TODO-List
+  a(href='/todo/add') Add Item
+  br
+  table
+    tbody
+      tr
+        td Time
+        td Item
+      each val in todoList
+        tr
+          td #{val.time}
+          td #{val.item}
+          td 
+            a(href=`/todo/edit/${val._id}`) edit
+          td
+            a(href=`/todo/delete/${val._id}`) delete
+
