@@ -1,12 +1,12 @@
 extends ../layout
 
 block content
-  form(action=`/todo/edit/${item._id}` method="POST")
-    h1 Edit Item
+  form(action=`/todo/edit/${event._id}` method="POST")
+    h1 Edit Event
     div
         span Time:
-        input(type="time" placeholder="time" name="time" value=`${item.time}` required="true")
+        input(type="time" placeholder="time" name="time" value=`${event.time}` required="true")
     div
-        span Item: 
-        input(type="text" placeholder="item" name="item" value=`${item.item}` required="true")
+        span Event: 
+        input(type="text" placeholder="event" name="event" value=`${event.event}` required="true")
     button(type="submit") Submit

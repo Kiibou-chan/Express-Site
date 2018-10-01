@@ -2,17 +2,17 @@ extends ../layout
 
 block content
   h1 TODO-List
-  a(href='/todo/add') Add Item
+  a(href='/todo/add') Add Event
   br
   table
     tbody
       tr
         td Time
-        td Item
+        td Event
       each val in todoList
         tr
           td #{val.time}
-          td #{val.item}
+          td #{val.event}
           td 
             a(href=`/todo/edit/${val._id}`) edit
           td
