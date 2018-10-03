@@ -1,40 +1,34 @@
 const express = require('express');
 const router = express.Router();
 const mongo = require('mongodb');
-const MongoClient = mongo.MongoClient;
 
-const db_url = process.env.DB_URL || 'mongodb://localhost:27017';
-const db_name = 'todo-list';
-const events = 'events';
-
-var db;
-MongoClient.connect(db_url, {
-    useNewUrlParser: true
-}, (err, client) => {
-    if (err) return console.log(err);
-    db = client.db(db_name);
+let db;
+let dbService = require('../services/DatabaseService');
+dbService.getDatabase('calendar', (calDB) => {
+    db = calDB;
 });
 
-router.get('/list', (req, res, next) => {
+const events = 'events';
+
+router.get('/', (req, res, next) => {
+    console.log(db);
     db.collection(events).find().sort({
         time: 1
     }).toArray((err, results) => {
-        res.render('todo/list', {
-            todoList: results
+        res.render('calendar/list', {
+            calendarList: results
         });
     });
 });
 
 router.route('/add')
     .get((req, res, next) => {
-        res.render('todo/add');
+        res.render('calendar/add');
     })
     .post((req, res, next) => {
         db.collection(events).insertOne(req.body, (err, result) => {
             if (err) return console.log(err);
-
-            console.log('saved to database');
-            res.redirect('/todo/list');
+            res.redirect('/calendar/list');
         });
     });
 
@@ -45,7 +39,7 @@ router.route('/edit/:id')
             _id: new mongo.ObjectID(id)
         }).next((err, doc) => {
             if (err) return console.log(err);
-            res.render('todo/edit', {
+            res.render('calendar/edit', {
                 event: doc
             });
         });
@@ -65,7 +59,7 @@ router.route('/edit/:id')
             (err, result) => {
                 if (err) return console.log(err);
 
-                res.redirect('/todo/list');
+                res.redirect('/calendar/list');
             }
         );
     });
@@ -78,7 +72,7 @@ router.route('/delete/:id')
         }).next((err, doc) => {
             if (err) return console.log(err);
 
-            res.render('todo/delete', {
+            res.render('calendar/delete', {
                 event: doc
             });
         });
@@ -90,7 +84,7 @@ router.route('/delete/:id')
         }, (err, result) => {
             if (err) return res.send(500, err);
 
-            res.redirect('/todo/list');
+            res.redirect('/calendar/list');
         });
     });
 
