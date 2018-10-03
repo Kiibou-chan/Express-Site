@@ -1,20 +1,20 @@
 extends ../layout
 
 block content
-  h1 Calendar
-  a(href='/calendar/add') Add Event
+  h1 TODO-List
+  a(href='/todo/add') Add Event
   br
   table
     tbody
       tr
         td Time
         td Event
-      each val in calendarList
+      each val in todoList
         tr
           td #{val.time}
           td #{val.event}
           td 
-            a(href=`/calendar/edit/${val._id}`) edit
+            a(href=`/todo/edit/${val._id}`) edit
           td
-            a(href=`/calendar/delete/${val._id}`) delete
+            a(href=`/todo/delete/${val._id}`) delete
 
