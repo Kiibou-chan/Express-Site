@@ -3,7 +3,7 @@ const router = express.Router();
 const mongo = require('mongodb');
 
 let db;
-let dbService = require('../services/DatabaseService');
+let dbService = require('../../services/DatabaseService');
 dbService.getDatabase('calendar', (calDB) => {
     db = calDB;
 });
@@ -11,12 +11,11 @@ dbService.getDatabase('calendar', (calDB) => {
 const events = 'events';
 
 router.get('/', (req, res, next) => {
-    console.log(db);
     db.collection(events).find().sort({
         time: 1
     }).toArray((err, results) => {
         res.render('calendar/list', {
-            calendarList: results
+            events: results
         });
     });
 });
@@ -28,7 +27,20 @@ router.route('/add')
     .post((req, res, next) => {
         db.collection(events).insertOne(req.body, (err, result) => {
             if (err) return console.log(err);
-            res.redirect('/calendar/list');
+            res.redirect('/calendar');
+        });
+    });
+
+router.route('/detail/:id')
+    .get((req, res, next) => {
+        let id = req.params.id;
+        db.collection(events).find({
+            _id: new mongo.ObjectID(id)
+        }).next((err, doc) => {
+            if (err) return console.log(err);
+            res.render('calendar/detail', {
+                event: doc
+            });
         });
     });
 
@@ -50,8 +62,9 @@ router.route('/edit/:id')
                 _id: new mongo.ObjectID(id)
             }, {
                 $set: {
+                    name: req.body.name,
                     time: req.body.time,
-                    event: req.body.event
+                    detail: req.body.detail
                 }
             }, {
                 upsert: false
@@ -59,7 +72,7 @@ router.route('/edit/:id')
             (err, result) => {
                 if (err) return console.log(err);
 
-                res.redirect('/calendar/list');
+                res.redirect('/calendar');
             }
         );
     });
@@ -84,7 +97,7 @@ router.route('/delete/:id')
         }, (err, result) => {
             if (err) return res.send(500, err);
 
-            res.redirect('/calendar/list');
+            res.redirect('/calendar');
         });
     });
 

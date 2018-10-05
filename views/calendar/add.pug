@@ -1,12 +1,15 @@
 extends ../layout
 
 block content
-  h1 Add Event
-  form(action="/calendar/add" method="POST")
-    div
-      span Time:
-      input(type="time" placeholder="time" name="time" required="true")
-    div
-      span Event:
-      input(type="text" placeholder="Event" name="event" required="true")
-    button(type="submit") Submit
+	h1 Add Event
+	form(action="/calendar/add" method="POST")
+		div
+			span Name:
+			input(type="text" placeholder="Event Name" name="name" required)
+		div
+			span Time:
+			input(type="time" placeholder="time" name="time" required)
+		div
+			span Detail:
+			input(type="text" placeholder="Event Details" name="detail")
+		button(type="submit") Submit

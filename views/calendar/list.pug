@@ -1,20 +1,18 @@
 extends ../layout
 
 block content
-  h1 Calendar
-  a(href='/calendar/add') Add Event
-  br
-  table
-    tbody
-      tr
-        td Time
-        td Event
-      each val in calendarList
-        tr
-          td #{val.time}
-          td #{val.event}
-          td 
-            a(href=`/calendar/edit/${val._id}`) edit
-          td
-            a(href=`/calendar/delete/${val._id}`) delete
+	h1 Calendar
+	a(href='/calendar/add') Add Event
+	br
+	table
+		thead
+			tr
+				td Time
+				td Event Name
+		tbody
+			each val in events
+				tr
+					td #{val.time}
+					td 
+						a(href=`/calendar/detail/${val._id}`) #{val.name}
 

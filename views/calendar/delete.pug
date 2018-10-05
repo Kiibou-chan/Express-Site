@@ -6,12 +6,18 @@ block content
     form(method="POST")
         div
             input(hidden="true" type="text" name="_id" value=`${event._id}`)
-            p ID:
+            div
+                span ID: 
                 span #{event._id}
-            p Time:
+            div
+                span Name: 
+                span #{event.name}
+            div
+                span Time: 
                 span #{event.time}
-            p event:
-                span #{event.event}
+            div
+                span Detail:
+                span #{event.detail}
         button(type="submit") Delete
-    a(href="/calendar/list")
+    a(href="/calendar")
         input(type="button", value="Go Back")
