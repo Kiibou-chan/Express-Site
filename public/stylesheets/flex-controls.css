@@ -1,0 +1,64 @@
+
+input, textarea, select, button {
+    border: none;
+    font-size: 1.2em;
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.controls * {
+    flex-basis: 50%;
+    flex-grow: 2;
+    width: 100%;
+}
+
+.controls div {
+    margin: 1%;
+}
+
+.submit {
+    order: 0;
+}
+
+.submit input, button {
+    background-color: green;
+    color: white;
+}
+
+.submit input:hover, button:hover {
+    background-color: rgb(0, 110, 0);
+}
+
+.return {
+    order: 0;
+}
+
+.edit {
+    order: 1;
+}
+
+.edit input, button {
+    background-color: rgb(255, 215, 0);
+    color: black;
+}
+
+.edit input:hover, button:hover {
+    background-color: rgb(221, 188, 1);
+}
+
+.delete {
+    order: 2;
+}
+
+.delete input, button {
+    background-color: red;
+    color: white;
+}
+
+.delete input:hover, button:hover{
+    background-color: rgb(221, 0, 0);
+}

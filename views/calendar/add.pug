@@ -1,15 +1,20 @@
-extends ../layout
+extends layout
+
+block header
+		link(rel="stylesheet", href="/stylesheets/flex-controls.css")
+		link(rel="stylesheet", href="/stylesheets/grid-content.css")
+
 
 block content
-	h1 Add Event
 	form(action="/calendar/add" method="POST")
-		div
-			span Name:
-			input(type="text" placeholder="Event Name" name="name" required)
-		div
-			span Time:
-			input(type="time" placeholder="time" name="time" required)
-		div
-			span Detail:
-			input(type="text" placeholder="Event Details" name="detail")
-		button(type="submit") Submit
+		div.content
+			h1#heading Add Event
+			span.pre Name:
+			input.value(type="text" placeholder="Event Name" name="name" required)
+			span.pre Time:
+			input.value(type="time" placeholder="time" name="time" required)
+			span.pre Detail:
+			input.value(type="text" placeholder="Event Details" name="detail")
+		div.controls
+			div.submit
+				button(type="submit") Submit

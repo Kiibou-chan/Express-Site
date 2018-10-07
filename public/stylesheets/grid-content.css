@@ -1,0 +1,21 @@
+.content {
+    display: grid;
+    grid-template-columns: 5em auto;
+    grid-template-rows: 5em repeat(3, 3em);
+    font-size: 1.2em;
+}
+
+#heading {
+    grid-row: 1;
+    grid-column: 1 / span 2;
+    justify-self: center;
+}
+
+.pre {
+    justify-self: left;
+    align-self: center;
+}
+
+.value {
+    align-self: center;
+}

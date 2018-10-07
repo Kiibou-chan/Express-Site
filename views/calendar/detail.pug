@@ -1,20 +1,19 @@
-extends ../layout
+extends layout
+
+block header
+    link(rel="stylesheet", href="/stylesheets/flex-controls.css")
+    link(rel="stylesheet", href="/stylesheets/grid-content.css")
 
 block content
-    div
-        h1 Event Detail
-        div.id
-            span ID: 
-            span#detail #{event._id}
-        div.name
-            span Name: 
-            span#detail #{event.name}
-        div.time
-            span Time: 
-            span#detail #{event.time}
-        div.details
-            span Detail: 
-            span#detail #{event.detail}
+    div.content
+        h1#heading Event Detail
+        span.pre Name: 
+        span.value #{event.name}
+        span.pre Time: 
+        span.value #{event.time}
+        span.pre Details: 
+        span.value #{event.detail}
+    div.controls
         div.edit
             a(href=`/calendar/edit/${event._id}`)
                 input(type="button", value="Edit")

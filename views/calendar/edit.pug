@@ -1,15 +1,18 @@
-extends ../layout
+extends layout
+
+block header
+		link(rel="stylesheet", href="/stylesheets/flex-controls.css")
+		link(rel="stylesheet", href="/stylesheets/grid-content.css")
 
 block content
-  form(action=`/calendar/edit/${event._id}` method="POST")
-    h1 Edit Event
-    div
-        span Name: 
-        input(type="text" placeholder="Event Name" name="name" value=`${event.name}` required="true")
-    div
-        span Time: 
-        input(type="time" placeholder="time" name="time" value=`${event.time}` required="true")
-    div
-        span Detail: 
-        input(type="text" placeholder="Event Detail" name="detail" value=`${event.detail}`)
-    button(type="submit") Submit
+	form(action=`/calendar/edit/${event._id}` method="POST")
+		div.content
+			h1#heading Edit Event
+			span.pre Name: 
+			input.value(type="text" placeholder="Event Name" name="name" value=`${event.name}` required="true")
+			span.pre Time: 
+			input.value(type="time" placeholder="time" name="time" value=`${event.time}` required="true")
+			span.pre Detail: 
+			input.value(type="text" placeholder="Event Detail" name="detail" value=`${event.detail}`)
+		div.controls
+			button(type="submit") Submit
