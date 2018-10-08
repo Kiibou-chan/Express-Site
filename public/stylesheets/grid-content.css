@@ -1,8 +1,7 @@
 .content {
     display: grid;
     grid-template-columns: 25% 75%;
-    grid-template-rows: 5em repeat(2, 3em) 13.5em;
-    /* font-size: 1.2em; */
+    grid-template-rows: repeat(4, auto);
 }
 
 #heading {
@@ -18,7 +17,8 @@
 
 .value {
   align-self: center;
-  height: 1.3125em;
+  height: auto;
+  font-size: 1rem;
 }
 
 textarea.value {

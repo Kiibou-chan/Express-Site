@@ -32,15 +32,11 @@ fieldset {
 }
 
 input, textarea, select, button {
-  /* width: 100%; */
   padding: 0.5rem 0.8rem;
   margin: 4px 0;
-  /* float: left; */
   
   border: 1px solid #DDD;
   border-radius: 3px;
-  
-  /* box-sizing: border-box; */
 }
 
 a {

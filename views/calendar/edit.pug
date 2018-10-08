@@ -3,6 +3,7 @@ extends layout
 block header
 		link(rel="stylesheet", href="/stylesheets/flex-controls.css")
 		link(rel="stylesheet", href="/stylesheets/grid-content.css")
+		script(src="/scripts/grid-content.js")
 
 block content
 	form(action=`/calendar/edit/${event._id}` method="POST")
@@ -13,7 +14,7 @@ block content
 			span.pre Time: 
 			input.value(type="time" placeholder="time" name="time" value=`${event.time}` required="true")
 			span.pre Detail: 
-			textarea.value(cols="30", rows="10" placeholder="Event Detail" name="detail" value=`${event.detail}`)
+			textarea.value(cols="30", rows="1" placeholder="Event Detail" name="detail") #{event.detail}
 		div.controls
 			div.submit
 				button(type="submit") Submit
