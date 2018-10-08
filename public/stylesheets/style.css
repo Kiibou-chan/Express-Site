@@ -1,3 +1,7 @@
+:root {
+  font-size: 16px;
+}
+
 body {
   position: relative;
   left: 25%;
@@ -12,7 +16,7 @@ body {
   background: #EEE;
   
   line-height: 1.5;
-  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px "Open Sans",sans-serif;
   
   border-style: solid;
   border-width: 0px 2px 0px 2px;
@@ -29,7 +33,7 @@ fieldset {
 
 input, textarea, select, button {
   /* width: 100%; */
-  padding: 12px 20px;
+  padding: 0.5rem 0.8rem;
   margin: 4px 0;
   /* float: left; */
   

@@ -1,7 +1,8 @@
-
-input, textarea, select, button {
+.controls input, .controls textarea, .controls select, .controls button {
     border: none;
-    font-size: 1.2em;
+    font-size: 1rem;
+    height: 2.5rem;
+    border: 1px solid #ccc;
 }
 
 .controls {
@@ -12,7 +13,7 @@ input, textarea, select, button {
 
 .controls * {
     flex-basis: 50%;
-    flex-grow: 2;
+    flex-grow: 1;
     width: 100%;
 }
 
@@ -24,12 +25,12 @@ input, textarea, select, button {
     order: 0;
 }
 
-.submit input, button {
+.submit input, .submit button {
     background-color: green;
     color: white;
 }
 
-.submit input:hover, button:hover {
+.submit input:hover, .submit button:hover {
     background-color: rgb(0, 110, 0);
 }
 
@@ -41,12 +42,12 @@ input, textarea, select, button {
     order: 1;
 }
 
-.edit input, button {
+.edit input, .edit button {
     background-color: rgb(255, 215, 0);
     color: black;
 }
 
-.edit input:hover, button:hover {
+.edit input:hover, .edit button:hover {
     background-color: rgb(221, 188, 1);
 }
 
@@ -54,11 +55,11 @@ input, textarea, select, button {
     order: 2;
 }
 
-.delete input, button {
+.delete input, .delete button {
     background-color: red;
     color: white;
 }
 
-.delete input:hover, button:hover{
+.delete input:hover, .delete button:hover{
     background-color: rgb(221, 0, 0);
 }

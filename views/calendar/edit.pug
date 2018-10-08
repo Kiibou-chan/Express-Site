@@ -13,6 +13,7 @@ block content
 			span.pre Time: 
 			input.value(type="time" placeholder="time" name="time" value=`${event.time}` required="true")
 			span.pre Detail: 
-			input.value(type="text" placeholder="Event Detail" name="detail" value=`${event.detail}`)
+			textarea.value(cols="30", rows="10" placeholder="Event Detail" name="detail" value=`${event.detail}`)
 		div.controls
-			button(type="submit") Submit
+			div.submit
+				button(type="submit") Submit
