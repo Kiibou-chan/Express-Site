@@ -67,7 +67,10 @@ router.route('/edit/:id')
             }, {
                 $set: {
                     name: req.body.name,
-                    time: req.body.time,
+                    timeStart: req.body.timeStart,
+                    timeEnd: req.body.timeEnd,
+                    dateStart: req.body.dateStart,
+                    dateEnd: req.body.dateEnd,
                     details: req.body.details
                 }
             }, {

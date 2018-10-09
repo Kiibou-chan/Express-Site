@@ -57,8 +57,7 @@ class Event {
                 elemType: 'input',
                 placeholder: 'Event Name',
                 required: true
-            },
-            {
+            }, {
                 descriptor: 'Time Start',
                 value: values.timeStart || '',
                 name: 'timeStart',
@@ -66,16 +65,14 @@ class Event {
                 type: 'time',
                 placeholder: 'Time Start',
                 required: true
-            },
-            {
+            }, {
                 descriptor: 'Time End',
                 value: values.timeEnd || '',
                 name: 'timeEnd',
                 elemType: 'input',
                 type: 'time',
                 placeholder: 'Time End'
-            },
-            {
+            }, {
                 descriptor: 'Date Start',
                 value: values.dateStart || '',
                 name: 'dateStart',
@@ -83,16 +80,14 @@ class Event {
                 type: 'date',
                 placeholder: 'Date Start',
                 required: true
-            },
-            {
+            }, {
                 descriptor: 'Date End',
                 value: values.dateEnd || '',
                 name: 'dateEnd',
                 elemType: 'input',
                 type: 'date',
                 placeholder: 'Date End'
-            },
-            {
+            }, {
                 descriptor: 'Details',
                 value: values.details || '',
                 name: 'details',
