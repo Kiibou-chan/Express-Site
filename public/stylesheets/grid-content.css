@@ -21,6 +21,11 @@
   font-size: 1rem;
 }
 
+p.value {
+    white-space: pre-wrap;
+    margin: 0.25em 0 0.25em 0;
+}
+
 textarea.value {
     height: unset;
     resize: none;

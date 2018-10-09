@@ -7,12 +7,7 @@ block header
 block content
     div.content
         h1#heading Event Detail
-        span.pre Name: 
-        span.value #{event.name}
-        span.pre Time: 
-        span.value #{event.time}
-        span.pre Details: 
-        span.value #{event.detail}
+        include event.pug
     div.controls
         div.edit
             a(href=`/calendar/edit/${event._id}`)

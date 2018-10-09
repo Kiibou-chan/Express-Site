@@ -1,0 +1,42 @@
+mixin span(value)
+	span.value #{value}
+
+mixin p(value)
+	p.value #{value}
+
+mixin input(type, placeholder, name, value, required)
+	input.value(
+		type=type,
+		placeholder=placeholder,
+		name=name,
+		value=value,
+		required=required
+	)
+
+mixin textarea(cols, rows, placeholder, name, value, required)
+	textarea.value(
+		cols=cols,
+		rows=rows,
+		placeholder=placeholder,
+		name=name,
+		required=required		
+	) #{value}
+
+mixin elem(args)
+	case args.elemType 
+		when 'span'
+			+span(args.value)
+		when 'p'
+			+p(args.value)
+		when 'input'
+			+input(args.type, args.placeholder, args.name, args.value, args.required)
+		when 'textarea'
+			+textarea(args.cols, args.rows, args.placeholder, args.name, args.value, args.required)
+
+mixin event(args)
+	each row in args
+		+elem(row.pre)
+		+elem(row.value)
+
+- console.log(event.rows)
++event(event.rows)

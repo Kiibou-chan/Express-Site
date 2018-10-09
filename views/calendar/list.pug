@@ -2,7 +2,7 @@ extends layout
 
 block content
 	h1 Calendar
-	a(href='/calendar/add') Add Event
+	a(href='/calendar/create') Create Event
 	br
 	table
 		thead
@@ -14,5 +14,5 @@ block content
 				tr
 					td #{val.time}
 					td 
-						a(href=`/calendar/detail/${val._id}`) #{val.name}
+						a(href=`/calendar/details/${val._id}`) #{val.name}
 

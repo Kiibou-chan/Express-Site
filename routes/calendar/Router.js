@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const mongo = require('mongodb');
+const EventRow = require('./EventRow');
+const Event = require('./Event');
 
 let db;
 let dbService = require('../../services/DatabaseService');
@@ -20,9 +22,11 @@ router.get('/', (req, res, next) => {
     });
 });
 
-router.route('/add')
+router.route('/create')
     .get((req, res, next) => {
-        res.render('calendar/add');
+        res.render('calendar/create', {
+            event: new Event(null, 'create', {})
+        });
     })
     .post((req, res, next) => {
         db.collection(events).insertOne(req.body, (err, result) => {
@@ -31,15 +35,15 @@ router.route('/add')
         });
     });
 
-router.route('/detail/:id')
+router.route('/details/:id')
     .get((req, res, next) => {
         let id = req.params.id;
         db.collection(events).find({
             _id: new mongo.ObjectID(id)
         }).next((err, doc) => {
             if (err) return console.log(err);
-            res.render('calendar/detail', {
-                event: doc
+            res.render('calendar/details', {
+                event: new Event(id, 'details', doc)
             });
         });
     });
@@ -52,7 +56,7 @@ router.route('/edit/:id')
         }).next((err, doc) => {
             if (err) return console.log(err);
             res.render('calendar/edit', {
-                event: doc
+                event: new Event(id, 'edit', doc)
             });
         });
     })
@@ -64,14 +68,13 @@ router.route('/edit/:id')
                 $set: {
                     name: req.body.name,
                     time: req.body.time,
-                    detail: req.body.detail
+                    details: req.body.details
                 }
             }, {
                 upsert: false
             },
             (err, result) => {
                 if (err) return console.log(err);
-
                 res.redirect('/calendar');
             }
         );
@@ -86,7 +89,7 @@ router.route('/delete/:id')
             if (err) return console.log(err);
 
             res.render('calendar/delete', {
-                event: doc
+                event: new Event(id, 'delete', doc)
             });
         });
     })
