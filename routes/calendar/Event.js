@@ -4,7 +4,7 @@ class Event {
     constructor(id, type, rowValues) {
         this._id = id;
 
-        this.rows = this.createRows(type, this.rowsData(rowValues));
+        this.rows = this.createRows(type, rowsData(rowValues));
     }
 
     createRows(type, rowsData) {
@@ -49,53 +49,55 @@ class Event {
         }
     }
     
-    rowsData(values) {
-        return [{
-                descriptor: 'Name',
-                value: values.name || '',
-                name: 'name',
-                elemType: 'input',
-                placeholder: 'Event Name',
-                required: true
-            }, {
-                descriptor: 'Time Start',
-                value: values.timeStart || '',
-                name: 'timeStart',
-                elemType: 'input',
-                type: 'time',
-                placeholder: 'Time Start',
-                required: true
-            }, {
-                descriptor: 'Time End',
-                value: values.timeEnd || '',
-                name: 'timeEnd',
-                elemType: 'input',
-                type: 'time',
-                placeholder: 'Time End'
-            }, {
-                descriptor: 'Date Start',
-                value: values.dateStart || '',
-                name: 'dateStart',
-                elemType: 'input',
-                type: 'date',
-                placeholder: 'Date Start',
-                required: true
-            }, {
-                descriptor: 'Date End',
-                value: values.dateEnd || '',
-                name: 'dateEnd',
-                elemType: 'input',
-                type: 'date',
-                placeholder: 'Date End'
-            }, {
-                descriptor: 'Details',
-                value: values.details || '',
-                name: 'details',
-                elemType: 'textarea',
-                placeholder: 'Event Details'
-            },
-        ]
-    }
+    
+}
+
+function rowsData(values) {
+    return [{
+            descriptor: 'Name',
+            value: values.name || '',
+            name: 'name',
+            elemType: 'input',
+            placeholder: 'Event Name',
+            required: true
+        }, {
+            descriptor: 'Time Start',
+            value: values.timeStart || '',
+            name: 'timeStart',
+            elemType: 'input',
+            type: 'time',
+            placeholder: 'Time Start',
+            required: true
+        }, {
+            descriptor: 'Time End',
+            value: values.timeEnd || '',
+            name: 'timeEnd',
+            elemType: 'input',
+            type: 'time',
+            placeholder: 'Time End'
+        }, {
+            descriptor: 'Date Start',
+            value: values.dateStart || '',
+            name: 'dateStart',
+            elemType: 'input',
+            type: 'date',
+            placeholder: 'Date Start',
+            required: true
+        }, {
+            descriptor: 'Date End',
+            value: values.dateEnd || '',
+            name: 'dateEnd',
+            elemType: 'input',
+            type: 'date',
+            placeholder: 'Date End'
+        }, {
+            descriptor: 'Details',
+            value: values.details || '',
+            name: 'details',
+            elemType: 'textarea',
+            placeholder: 'Event Details'
+        }
+    ]
 }
 
 module.exports = Event;

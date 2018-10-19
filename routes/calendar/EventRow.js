@@ -1,6 +1,7 @@
 class EventRow {
     constructor(descriptor, args) {
         this.pre = {
+            cls: 'pre',
             elemType: 'span',
             value: `${descriptor}:`
         };
@@ -46,6 +47,8 @@ class EventRow {
                 }
                 break;
         }
+
+        this.value.cls = 'value';
     }
 }
 

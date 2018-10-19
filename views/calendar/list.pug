@@ -1,5 +1,8 @@
 extends layout
 
+block header
+	script(src="/scripts/calendar.js")
+
 block content
 	h1 Calendar
 	a(href='/calendar/create') Create Event
@@ -11,7 +14,8 @@ block content
 				td Event Name
 		tbody
 			each val in events
+				tr.event
+					td #{val.timeStart}
+					td #{val.name}
 				tr
-					td #{val.time}
-					td 
-						a(href=`/calendar/details/${val._id}`) #{val.name}
+					td.data(colspan="2", id=val._id) 

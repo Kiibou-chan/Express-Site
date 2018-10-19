@@ -1,11 +1,12 @@
-mixin span(value)
-	span.value #{value}
+mixin span(cls, value)
+	span(class=cls) #{value}
 
-mixin p(value)
-	p.value #{value}
+mixin p(cls, value)
+	p(class=cls) #{value}
 
-mixin input(type, placeholder, name, value, required)
-	input.value(
+mixin input(cls, type, placeholder, name, value, required)
+	input(
+		class=cls,
 		type=type,
 		placeholder=placeholder,
 		name=name,
@@ -13,8 +14,9 @@ mixin input(type, placeholder, name, value, required)
 		required=required
 	)
 
-mixin textarea(cols, rows, placeholder, name, value, required)
-	textarea.value(
+mixin textarea(cls, cols, rows, placeholder, name, value, required)
+	textarea(
+		class=cls,
 		cols=cols,
 		rows=rows,
 		placeholder=placeholder,
@@ -25,13 +27,13 @@ mixin textarea(cols, rows, placeholder, name, value, required)
 mixin elem(args)
 	case args.elemType 
 		when 'span'
-			+span(args.value)
+			+span(args.cls, args.value)
 		when 'p'
-			+p(args.value)
+			+p(args.cls, args.value)
 		when 'input'
-			+input(args.type, args.placeholder, args.name, args.value, args.required)
+			+input(args.cls, args.type, args.placeholder, args.name, args.value, args.required)
 		when 'textarea'
-			+textarea(args.cols, args.rows, args.placeholder, args.name, args.value, args.required)
+			+textarea(args.cls, args.cols, args.rows, args.placeholder, args.name, args.value, args.required)
 
 mixin event(args)
 	each row in args

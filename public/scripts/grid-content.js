@@ -1,4 +1,4 @@
-$(document).ready(() => {
+$(document).ready(function () {
     $('textarea.value').focus(function () {
         $(this).attr('rows', '10');
     }).find('textarea').change();

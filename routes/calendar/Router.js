@@ -62,17 +62,18 @@ router.route('/edit/:id')
     })
     .post((req, res, next) => {
         let id = req.params.id;
+
+        let values = {};
+
+        for (const key in req.body) {
+            const element = req.body[key];
+            values.key = element;
+        }
+
         db.collection(events).findOneAndUpdate({
                 _id: new mongo.ObjectID(id)
             }, {
-                $set: {
-                    name: req.body.name,
-                    timeStart: req.body.timeStart,
-                    timeEnd: req.body.timeEnd,
-                    dateStart: req.body.dateStart,
-                    dateEnd: req.body.dateEnd,
-                    details: req.body.details
-                }
+                $set: values
             }, {
                 upsert: false
             },

@@ -1,17 +1,10 @@
-extends layout
-
-block header
-    link(rel="stylesheet", href="/stylesheets/flex-controls.css")
-    link(rel="stylesheet", href="/stylesheets/grid-content.css")
-
-block content
-    div.content
-        h1#heading Event Detail
-        include event.pug
-    div.controls
-        div.edit
-            a(href=`/calendar/edit/${event._id}`)
-                input(type="button", value="Edit")
-        div.delete
-            a(href=`/calendar/delete/${event._id}`)
-                input(type="button", value="Delete")
+div.content
+    h1#heading Event Detail
+    include event.pug
+div.controls
+    div.edit
+        a(href=`/calendar/edit/${event._id}`)
+            input(type="button", value="Edit")
+    div.delete
+        a(href=`/calendar/delete/${event._id}`)
+            input(type="button", value="Delete")
