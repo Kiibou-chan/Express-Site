@@ -12,6 +12,6 @@ block content
 		tbody
 			each val in events
 				tr
-					td #{val.time}
+					td #{val.timeStart}
 					td 
 						a(href=`/calendar/details/${val._id}`) #{val.name}
