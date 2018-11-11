@@ -1,0 +1,8 @@
+extends ../layout
+
+block header
+    script(src="scripts/editor.js")
+    link(rel="stylesheet", href="stylesheets/editor.css")
+
+block content
+    div#mainEditor.editor(name="mainEditor", cols="50", rows="30")

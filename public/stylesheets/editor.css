@@ -1,0 +1,64 @@
+.editor {
+    width: 100%;
+    height: 30em;
+    background-color: white;
+    overflow: hidden;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 1em;
+    overflow: auto;
+}
+
+.editor.active {
+    border: 1px solid rgb(0, 153, 255);
+}
+
+.editorRow {
+    display: grid;
+    width: 100%;
+    height: 1em;
+    border: unset;
+    margin: unset;
+    padding: unset;
+    border-radius: unset;
+    outline: unset;
+    font-family: monospace;
+}
+
+.editorRow * {
+    font-family: inherit;
+    font-size: 1em;
+}
+
+.editorRow span {
+    /* order: 0; */
+    color: #525252;
+    border: 1px solid black;
+    border-width: 0px 1px 0px 0px;
+    padding: 0px 2ch 0px 2ch;
+    text-align: right;
+}
+
+.editorRow input {
+    /* order: 1; */
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    border: none;
+    margin: unset;
+    padding: 0px 0px 0px 0.5em;
+    border-radius: unset;
+    outline: none;
+}
+
+.editorRow:active {
+    border: none;
+}
+
+.editorRow:nth-child(even) * {
+    background-color: #f2f2f2;
+}
+
+.editorRow:nth-child(odd) * {
+    background-color: #e2e2e2;
+}

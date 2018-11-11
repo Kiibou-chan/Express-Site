@@ -1,0 +1,40 @@
+mixin span(value, css)
+	span.value(
+		css=css
+	) #{value}
+
+mixin p(value, css)
+	p.value(
+		css=css
+	) #{value}
+
+mixin input(type, placeholder, name, value, css, required)
+	input.value(
+		type=type,
+		placeholder=placeholde,
+		name=name,
+		value=value,
+		css=css,
+		required=required
+	)
+
+mixin textarea(cols, rows, placeholder, name, value, css, required)
+	textarea.value(
+		cols=cols,
+		rows=rows,
+		placeholder=placeholder,
+		name=name,
+		css=css,
+		required=required		
+	) #{value}
+
+mixin elem(args)
+	case args.elemType 
+		when 'span'
+			+span(args.value, args.css)
+		when 'p'
+			+p(args.value, args.css)
+		when 'input'
+			+input(args.type, args.placeholder, args.name, args.value, args.css, args.required)
+		when 'textarea'
+			+textarea(args.cols, args.rows, args.placeholder, args.name, args.value, args.css, args.required)

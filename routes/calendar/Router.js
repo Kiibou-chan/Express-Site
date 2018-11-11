@@ -4,6 +4,10 @@ const mongo = require('mongodb');
 const EventRow = require('./EventRow');
 const Event = require('./Event');
 
+
+// require("../../templates/grid/Element");
+
+
 let db;
 let dbService = require('../../services/DatabaseService');
 dbService.getDatabase('calendar', (calDB) => {
@@ -25,7 +29,9 @@ router.get('/', (req, res, next) => {
 router.route('/create')
     .get((req, res, next) => {
         res.render('calendar/create', {
-            event: new Event(null, 'create', {})
+            event: new Event(null, 'create', {
+                timeStart: Date.now()
+            })
         });
     })
     .post((req, res, next) => {

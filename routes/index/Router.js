@@ -6,4 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Kiibou\'s Website' });
 });
 
+router.get('/binary', (req, res, next) => {
+  res.render('binary', {} );
+});
+
 module.exports = router;

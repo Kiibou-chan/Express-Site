@@ -1,0 +1,42 @@
+extends layout
+
+block header
+    script(src="scripts/binCalc.js")
+    link(rel="stylesheet", href="stylesheets/binary.css")
+    link(rel="stylesheet", href="stylesheets/grid-content.css")
+
+block content
+    div.calculator.content
+        span.pre Number:&nbsp;
+        input#decInput.value(oninput='input()')
+        span.pre Binary:&nbsp;
+        span#binOut.value.out
+        span.pre Octal:&nbsp;
+        span#octOut.value.out
+        span.pre Decimal:&nbsp;
+        span#decOut.value.out
+        span.pre Duodecimal:&nbsp;
+        span#duoOut.value.out
+        span.pre Hex:&nbsp;
+        span#hexOut.value.out
+    
+    br
+
+    table(style='text-align: left;')
+        thead
+            th 16
+            th 8
+            th 4
+            th 2
+            th 1
+            th Dez
+        - let n = 0;
+        while n < 32
+            tr
+                td= Math.floor((n%32)/16)
+                td= Math.floor((n%16)/8)
+                td= Math.floor((n%8)/4)
+                td= Math.floor((n%4)/2)
+                td= Math.floor(n%2)
+                td= n++
+        
