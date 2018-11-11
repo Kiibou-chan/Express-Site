@@ -21,14 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
 let rows = [];
 let activeRow = undefined;
 
-function setActiveRow(index) {
-
-}
-
 function focusRow(index) {
     if (index < 0) index = 0;
     else if (index >= rows.length) index = rows.length - 1;
-    rows[index].children[1].focus();
+    rows[index].input.focus();
 }
 
 function createEditorRow(mainEditor, rowIndex) {

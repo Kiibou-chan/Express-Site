@@ -7,14 +7,18 @@
     border-radius: 3px;
     padding: 1em;
     overflow: auto;
+    font-family: monospace;
+
+    display: grid;
+    grid-template-columns: 10ch auto;
+    grid-template-rows: repeat(-1, 1em);
 }
 
 .editor.active {
     border: 1px solid rgb(0, 153, 255);
 }
 
-.editorRow {
-    display: grid;
+/* .editor * {
     width: 100%;
     height: 1em;
     border: unset;
@@ -22,43 +26,46 @@
     padding: unset;
     border-radius: unset;
     outline: unset;
-    font-family: monospace;
-}
+} */
 
-.editorRow * {
+.editor * {
     font-family: inherit;
     font-size: 1em;
+    height: 1em;
 }
 
-.editorRow span {
-    /* order: 0; */
+.editor span {
     color: #525252;
     border: 1px solid black;
     border-width: 0px 1px 0px 0px;
     padding: 0px 2ch 0px 2ch;
     text-align: right;
+    
+
+    /* justify-self: left;
+    align-self: center; */
 }
 
-.editorRow input {
-    /* order: 1; */
-    flex-grow: 1;
-    width: 100%;
-    height: 100%;
+.editor input {
     border: none;
     margin: unset;
     padding: 0px 0px 0px 0.5em;
     border-radius: unset;
     outline: none;
+
+    /* align-self: center;
+    height: auto;
+    font-size: 1rem; */
 }
 
-.editorRow:active {
+.editor:active {
     border: none;
 }
 
-.editorRow:nth-child(even) * {
+.editor:nth-child(even) * {
     background-color: #f2f2f2;
 }
 
-.editorRow:nth-child(odd) * {
+.editor:nth-child(odd) * {
     background-color: #e2e2e2;
 }

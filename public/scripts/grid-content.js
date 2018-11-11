@@ -8,7 +8,7 @@
 //     }).find('textarea').change();
 // });
 
-document.addEventListener("readystatechange", (doc, event) => {
+document.addEventListener("DOMContentLoaded", (doc, event) => {
     document.getElementsByName("details").forEach((elem) => {
         function expand(element, current, max, time) {
             doAnimation();
