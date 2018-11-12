@@ -1,21 +1,7 @@
-let activeElements = [];
-
 document.addEventListener('DOMContentLoaded', () => {
     let mainEditor = document.getElementById('mainEditor')
 
     createEditorRow(mainEditor, 0);
-
-    document.addEventListener('click', event => {
-        let elem = activeElements.pop();
-        while (elem) {
-            elem.classList.remove('active');
-            elem = activeElements.pop();
-        }
-
-        let target = event.target;
-        target.classList.add('active');
-        activeElements.push(target);
-    });
 });
 
 let rows = [];
@@ -27,10 +13,14 @@ function focusRow(index) {
     rows[index].input.focus();
 }
 
-function createEditorRow(mainEditor, rowIndex) {
+function createEditorRow(editor, rowIndex) {
     // Create all the row elements, html/dom shenanigans
-    let pre = document.createElement('span');
-    pre.innerHTML = rowIndex + 1;
+    let row = document.createElement('div');
+    row.classList.add('row')
+
+    let span = document.createElement('span');
+    span.innerHTML = rowIndex + 1;
+    span.classList.add('lineNumber');
 
     let input = document.createElement('input');
     input.setAttribute('rowIndex', rowIndex);
@@ -43,7 +33,7 @@ function createEditorRow(mainEditor, rowIndex) {
 
         switch (key) {
             case 'Enter':
-                createEditorRow(mainEditor, index + 1);
+                createEditorRow(editor, index + 1);
                 break;
             case 'ArrowUp':
                 focusRow(index - 1);
@@ -58,12 +48,14 @@ function createEditorRow(mainEditor, rowIndex) {
     });
 
     rows.push({
-        pre: pre,
+        span: span,
         input: input
     });
 
-    mainEditor.appendChild(pre);
-    mainEditor.appendChild(input);
+    row.appendChild(span);
+    row.appendChild(input);
+
+    editor.appendChild(row);
 
     focusRow(rowIndex);
 }
